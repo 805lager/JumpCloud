@@ -1,0 +1,19 @@
+AppName=""
+DownLoadURL=""
+
+
+#Make temp folder for downloads.
+mkdir "/tmp/$AppName/";
+cd "/tmp/$AppName/"
+
+# Download the setup from Web:
+curl "$DownLoadURL" -o $AppName-mac.zip
+
+# After the setup is downloaded, unzip the setup: 
+unzip -q $AppName-mac.zip
+
+#Copy App to Applications
+sudo cp -R "/Volumes/$AppName/$AppName.app" /Applications;
+
+#Remove Temp Files (Temp Removed)
+sudo rm -rf "/tmp/$AppName/";
