@@ -1,16 +1,23 @@
-# *** USAGE *** Version: 1.1
-
-# *NOTE* this template is only designed to work with DMG files and does not support .pkg, .zip files or DMGs that contain .pkg installers.
-
-# Update the DownloadUrl="" variable with the URL of the target .DMG download file. This URL must resolve to a .DMG file directly or point to a URL which has the .DMG file in the curl header Location field.
-
-# The command: 'curl -s --head $DownloadUrl' can be used to query a given URLs header to determine if the Location field points to a .DMG file.
-
-# *NOTE* this template is only designed to work with DMG files and does not support .pkg or .zip files.
-
+AppName=""
 DownloadUrl=""
 
-### Modify below this line at your own risk!
+JCAPIKey='09f9b0e5dcbaef0c10003c369165d26d27369b33'
+
+user=$(ls -la /dev/console | cut -d " " -f 4)
+
+    userPrompt=$(sudo -u $user osascript -e 'display dialog "Docker needs to install or update. Please hit OK to approve." with title "JumpCloud: Application needs to update or install" with icon file "Applications:Jumpcloud.app:Contents:Resources:AppIcon.icns"' 2>/dev/null)
+   
+ echo $userPrompt
+
+if [[ $userPrompt == 'button returned:OK' ]]; then
+
+echo "installing software"
+
+#Kill Old Version
+killall $AppName
+
+#Remove Old Version
+sudo rm -rf /Applications/"$AppName.app"
 
 # Locate DMG Download Link From URL
 
@@ -167,3 +174,11 @@ fi
 rm -r /tmp/$TempFolder
 
 echo "Deleted /tmp/$TempFolder"
+
+else 
+
+echo "User Hit Cancel" 
+
+fi
+
+Exit (0)
