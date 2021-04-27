@@ -31,5 +31,3 @@ else
 echo "User Hit Cancel" 
 
 fi
-
-Exit (0)
