@@ -179,6 +179,4 @@ else
 
 echo "User Hit Cancel" 
 
-fi
-
-Exit 
+fi 
