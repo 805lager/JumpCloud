@@ -17,10 +17,10 @@ echo "installing software"
 #Make temp folder for downloads. 
 mkdir "/tmp/$AppName/"; cd "/tmp/$AppName/"; 
 
-#Download Tableau. 
+#Download Application
 curl -L -o /tmp/$AppName/$PKGName.pkg "$URLName"; 
 
-#install Tableau
+#install Application
 sudo installer -pkg /private/tmp/$AppName/$PKGName.pkg -target /; 
 
 #tidy up 
