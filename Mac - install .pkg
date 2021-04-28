@@ -1,0 +1,15 @@
+AppName=""
+PKGName=""
+URLName=""
+
+#Make temp folder for downloads. 
+mkdir "/tmp/$AppName/"; cd "/tmp/$AppName/"; 
+
+#Download Application
+curl -L -o /tmp/$AppName/$PKGName.pkg "$URLName"; 
+
+#install Application
+sudo installer -pkg /private/tmp/$AppName/$PKGName.pkg -target /; 
+
+#tidy up 
+sudo rm -rf "/tmp/$AppName";
