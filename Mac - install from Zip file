@@ -7,13 +7,13 @@ mkdir "/tmp/$AppName/";
 cd "/tmp/$AppName/"
 
 # Download the setup from Web:
-curl $DownloadURL -o $FileName
+curl $DownloadURL -o $FileName.zip
 
 # After the setup is downloaded, unzip the setup: 
-unzip -q $FileName
+unzip -q $FileName.zip
 
 #Copy App to Applications
-sudo cp -R "/Volumes/$AppName/$AppName.app" /Applications;
+sudo cp -R "/tmp/$AppName/$AppName.app" /Applications;
 
 #Remove Temp Files (Temp Removed)
 sudo rm -rf "/tmp/$AppName/";
