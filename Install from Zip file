@@ -1,0 +1,19 @@
+AppName=""
+DownloadURL=""
+FileName=""
+
+#Make temp folder for downloads
+mkdir "/tmp/$AppName/";
+cd "/tmp/$AppName/"
+
+# Download the setup from Web:
+curl $DownloadURL -o $FileName
+
+# After the setup is downloaded, unzip the setup: 
+unzip -q $FileName
+
+#Copy App to Applications
+sudo cp -R "/Volumes/$AppName/$AppName.app" /Applications;
+
+#Remove Temp Files (Temp Removed)
+sudo rm -rf "/tmp/$AppName/";
