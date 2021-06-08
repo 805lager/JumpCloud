@@ -1,0 +1,3 @@
+AppName=""
+
+sudo productbuild --component /Applications/$AppName.app /tmp/AppName.pkg
