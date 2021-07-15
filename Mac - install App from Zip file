@@ -2,6 +2,12 @@ AppName=""
 ZipFileName=""
 DownLoadURL=""
 
+#Kill Old Version
+killall $AppName
+
+#Remove Old Version
+sudo rm -rf /Applications/"$AppName.app"
+
 #Make temp folder for downloads.
 mkdir "/tmp/$AppName/";
 cd "/tmp/$AppName/"
